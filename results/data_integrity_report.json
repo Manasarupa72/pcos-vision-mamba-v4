@@ -1,0 +1,8 @@
+{
+  "total_images": 11784,
+  "unique_hashes": 3996,
+  "duplicate_groups": 1956,
+  "duplicate_images": 7788,
+  "cross_class_duplicates": 0,
+  "deduped_total": 3996
+}

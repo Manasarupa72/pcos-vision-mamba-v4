@@ -1,0 +1,25 @@
+
+% ============ LaTeX Table (V4) ============
+\\begin{table}[h]
+\\centering
+\\caption{Classification Performance — Vision Mamba V4 (5-Fold CV, 3996 images)}
+\\label{tab:classification_results_v4}
+\\begin{tabular}{lccc}
+\\toprule
+\\textbf{Metric} & \\textbf{Test} & \\textbf{95\% CI} & \\textbf{CV Mean $\\pm$ Std} \\\\
+\\midrule
+Accuracy & 0.9833 & [0.9733, 0.9933] & 0.9865 $\\pm$ 0.0030 \\\\
+Balanced Accuracy & 0.9834 & -- & 0.9807 $\\pm$ 0.0021 \\\\
+Sensitivity & 0.9833 & -- & 0.9904 $\\pm$ 0.0043 \\\\
+Specificity & 0.9836 & -- & 0.9710 $\\pm$ 0.0046 \\\\
+F1-Score & 0.9895 & [0.9829, 0.9957] & 0.9915 $\\pm$ 0.0019 \\\\
+AUC-ROC & 0.9878 & [0.9691, 0.9996] & 0.9975 $\\pm$ 0.0013 \\\\
+MCC & 0.9499 & -- & 0.9584 $\\pm$ 0.0089 \\\\
+\\midrule
+ECE (pre-cal.) & 0.1558 & -- & -- \\\\
+ECE (post-cal.) & 0.1804 & -- & -- \\\\
+Brier Score & 0.0413 & -- & -- \\\\
+\\bottomrule
+\\end{tabular}
+\\end{table}
+% ===================================================================

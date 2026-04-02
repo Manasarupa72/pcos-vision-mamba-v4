@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Model checkpoints (too large for GitHub — use Git LFS or external hosting)
+checkpoints/*.pth
+*.pth
+
+# Dataset (too large for GitHub)
+*.zip
+dataset_3520/
+PCOS/
+
+# Environment
+.env
+.venv
+env/
+venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Kaggle
+/kaggle/
+
+# Temporary
+*.tmp
+*.log
+
+# Large result images (optional — uncomment to exclude)
+# results/segmentation/seg_*.png
+# results/gradcam_gallery.png

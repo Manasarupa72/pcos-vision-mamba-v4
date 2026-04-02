@@ -1,0 +1,168 @@
+{
+  "test_metrics": {
+    "accuracy": 0.9833333333333333,
+    "balanced_accuracy": 0.9834350778517045,
+    "sensitivity": 0.9832635983263598,
+    "specificity": 0.9836065573770492,
+    "precision": 0.9957627118644068,
+    "recall": 0.9832635983263598,
+    "f1": 0.9894736842105263,
+    "auc_roc": 0.9877906577954592,
+    "avg_precision": 0.9943499889670868,
+    "mcc": 0.9499178193572982
+  },
+  "bootstrap_ci": {
+    "auc_95ci": [
+      0.9690772408125906,
+      0.9996318736582575
+    ],
+    "accuracy_95ci": [
+      0.9733333333333334,
+      0.9933333333333333
+    ],
+    "f1_95ci": [
+      0.9828684599902583,
+      0.9956905761862659
+    ]
+  },
+  "calibration": {
+    "ece_before": 0.15575763899212083,
+    "ece_after": 0.18043797362595795,
+    "brier_before": 0.04131076336556499,
+    "brier_after": 0.05027571405670631,
+    "temperature": 1.127287745475769
+  },
+  "cross_validation": {
+    "accuracy": {
+      "mean": 0.9864541280429698,
+      "std": 0.0030058867603466144,
+      "min": 0.9808541973490427,
+      "max": 0.9896907216494846
+    },
+    "balanced_accuracy": {
+      "mean": 0.9807026955586601,
+      "std": 0.0021153320583495706,
+      "min": 0.9771893166171073,
+      "max": 0.9835851482761392
+    },
+    "auc_roc": {
+      "mean": 0.9974800218146038,
+      "std": 0.0013284280622871097,
+      "min": 0.9949770955557341,
+      "max": 0.9988078973452277
+    },
+    "f1": {
+      "mean": 0.9914862131904524,
+      "std": 0.0019106955910910856,
+      "min": 0.9879294336118849,
+      "max": 0.9935483870967742
+    },
+    "sensitivity": {
+      "mean": 0.9903908983636971,
+      "std": 0.004280839528910435,
+      "min": 0.9833641404805915,
+      "max": 0.9963031423290203
+    },
+    "specificity": {
+      "mean": 0.9710144927536233,
+      "std": 0.004583011101693324,
+      "min": 0.9637681159420289,
+      "max": 0.9782608695652174
+    },
+    "mcc": {
+      "mean": 0.9584451269043306,
+      "std": 0.008869629129733,
+      "min": 0.941907966057374,
+      "max": 0.9679998946340999
+    }
+  },
+  "confusion_matrix": {
+    "tn": 120,
+    "fp": 2,
+    "fn": 8,
+    "tp": 470
+  },
+  "model_info": {
+    "backbone": "VisionMamba-V4-Bidirectional",
+    "n_mamba_blocks": 6,
+    "stochastic_depth_max": 0.1,
+    "bidirectional": true,
+    "label_smoothing": 0.05,
+    "total_params": 41295169,
+    "trainable_params": 41295169
+  },
+  "dataset_info": {
+    "total_images": 3996,
+    "test": 600,
+    "num_folds": 5,
+    "data_integrity": {
+      "total_images": 11784,
+      "unique_hashes": 3996,
+      "duplicate_groups": 1956,
+      "duplicate_images": 7788,
+      "cross_class_duplicates": 0,
+      "deduped_total": 3996
+    }
+  },
+  "training_config": {
+    "batch_size": 32,
+    "lr": 0.0003,
+    "max_epochs": 30,
+    "swa_epochs": 10,
+    "seed": 42
+  },
+  "ablation": {
+    "Full V4 (Bidirectional)": {
+      "Accuracy": 0.9833333333333333,
+      "AUC-ROC": 0.9877906577954592,
+      "Balanced Acc": 0.9834350778517045,
+      "F1-Score": 0.9894736842105263
+    },
+    "Unidirectional (No BiMamba)": {
+      "Accuracy": 0.9816666666666667,
+      "AUC-ROC": 0.9925063447424376,
+      "Balanced Acc": 0.9762843816448317,
+      "F1-Score": 0.9884575026232949
+    },
+    "No Stochastic Depth": {
+      "Accuracy": 0.98,
+      "AUC-ROC": 0.9941868440908156,
+      "Balanced Acc": 0.9721860209890939,
+      "F1-Score": 0.9874213836477987
+    },
+    "2 Mamba Blocks": {
+      "Accuracy": 0.98,
+      "AUC-ROC": 0.993946772755333,
+      "Balanced Acc": 0.9721860209890939,
+      "F1-Score": 0.9874213836477987
+    },
+    "4 Mamba Blocks": {
+      "Accuracy": 0.985,
+      "AUC-ROC": 0.9935523698470403,
+      "Balanced Acc": 0.9814287674051718,
+      "F1-Score": 0.9905561385099685
+    }
+  },
+  "significance_tests": {
+    "mcnemar": {
+      "p_value": 1.0,
+      "chi2": 0.0,
+      "significant": false
+    },
+    "delong": {
+      "p_value": 0.2660465945980346,
+      "z_statistic": -1.1122129654064337,
+      "auc_bidirectional": 0.9877906577954593,
+      "auc_unidirectional": 0.9925063447424378,
+      "significant": false
+    },
+    "paired_bootstrap": {
+      "p_value": 0.1445,
+      "delta_auc": -0.004691430274663742,
+      "delta_ci_95": [
+        -0.014484253084574236,
+        0.0007661057165178367
+      ]
+    }
+  }
+}

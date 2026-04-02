@@ -1,0 +1,22 @@
+{
+  "mcnemar": {
+    "p_value": 1.0,
+    "chi2": 0.0,
+    "significant": false
+  },
+  "delong": {
+    "p_value": 0.2660465945980346,
+    "z_statistic": -1.1122129654064337,
+    "auc_bidirectional": 0.9877906577954593,
+    "auc_unidirectional": 0.9925063447424378,
+    "significant": false
+  },
+  "paired_bootstrap": {
+    "p_value": 0.1445,
+    "delta_auc": -0.004691430274663742,
+    "delta_ci_95": [
+      -0.014484253084574236,
+      0.0007661057165178367
+    ]
+  }
+}

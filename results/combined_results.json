@@ -1,0 +1,6178 @@
+{
+  "test_metrics": {
+    "accuracy": 0.9833333333333333,
+    "balanced_accuracy": 0.9834350778517045,
+    "sensitivity": 0.9832635983263598,
+    "specificity": 0.9836065573770492,
+    "precision": 0.9957627118644068,
+    "recall": 0.9832635983263598,
+    "f1": 0.9894736842105263,
+    "auc_roc": 0.9877906577954592,
+    "avg_precision": 0.9943499889670868,
+    "mcc": 0.9499178193572982
+  },
+  "bootstrap_ci": {
+    "auc_95ci": [
+      0.9690772408125906,
+      0.9996318736582575
+    ],
+    "accuracy_95ci": [
+      0.9733333333333334,
+      0.9933333333333333
+    ],
+    "f1_95ci": [
+      0.9828684599902583,
+      0.9956905761862659
+    ]
+  },
+  "calibration": {
+    "ece_before": 0.15575763899212083,
+    "ece_after": 0.18043797362595795,
+    "brier_before": 0.04131076336556499,
+    "brier_after": 0.05027571405670631,
+    "temperature": 1.127287745475769
+  },
+  "cross_validation": {
+    "accuracy": {
+      "mean": 0.9864541280429698,
+      "std": 0.0030058867603466144,
+      "min": 0.9808541973490427,
+      "max": 0.9896907216494846
+    },
+    "balanced_accuracy": {
+      "mean": 0.9807026955586601,
+      "std": 0.0021153320583495706,
+      "min": 0.9771893166171073,
+      "max": 0.9835851482761392
+    },
+    "auc_roc": {
+      "mean": 0.9974800218146038,
+      "std": 0.0013284280622871097,
+      "min": 0.9949770955557341,
+      "max": 0.9988078973452277
+    },
+    "f1": {
+      "mean": 0.9914862131904524,
+      "std": 0.0019106955910910856,
+      "min": 0.9879294336118849,
+      "max": 0.9935483870967742
+    },
+    "sensitivity": {
+      "mean": 0.9903908983636971,
+      "std": 0.004280839528910435,
+      "min": 0.9833641404805915,
+      "max": 0.9963031423290203
+    },
+    "specificity": {
+      "mean": 0.9710144927536233,
+      "std": 0.004583011101693324,
+      "min": 0.9637681159420289,
+      "max": 0.9782608695652174
+    },
+    "mcc": {
+      "mean": 0.9584451269043306,
+      "std": 0.008869629129733,
+      "min": 0.941907966057374,
+      "max": 0.9679998946340999
+    }
+  },
+  "confusion_matrix": {
+    "tn": 120,
+    "fp": 2,
+    "fn": 8,
+    "tp": 470
+  },
+  "model_info": {
+    "backbone": "VisionMamba-V4-Bidirectional",
+    "n_mamba_blocks": 6,
+    "stochastic_depth_max": 0.1,
+    "bidirectional": true,
+    "label_smoothing": 0.05,
+    "total_params": 41295169,
+    "trainable_params": 41295169
+  },
+  "dataset_info": {
+    "total_images": 3996,
+    "test": 600,
+    "num_folds": 5,
+    "data_integrity": {
+      "total_images": 11784,
+      "unique_hashes": 3996,
+      "duplicate_groups": 1956,
+      "duplicate_images": 7788,
+      "cross_class_duplicates": 0,
+      "deduped_total": 3996
+    }
+  },
+  "training_config": {
+    "batch_size": 32,
+    "lr": 0.0003,
+    "max_epochs": 30,
+    "swa_epochs": 10,
+    "seed": 42
+  },
+  "ablation": {
+    "Full V4 (Bidirectional)": {
+      "Accuracy": 0.9833333333333333,
+      "AUC-ROC": 0.9877906577954592,
+      "Balanced Acc": 0.9834350778517045,
+      "F1-Score": 0.9894736842105263
+    },
+    "Unidirectional (No BiMamba)": {
+      "Accuracy": 0.9816666666666667,
+      "AUC-ROC": 0.9925063447424376,
+      "Balanced Acc": 0.9762843816448317,
+      "F1-Score": 0.9884575026232949
+    },
+    "No Stochastic Depth": {
+      "Accuracy": 0.98,
+      "AUC-ROC": 0.9941868440908156,
+      "Balanced Acc": 0.9721860209890939,
+      "F1-Score": 0.9874213836477987
+    },
+    "2 Mamba Blocks": {
+      "Accuracy": 0.98,
+      "AUC-ROC": 0.993946772755333,
+      "Balanced Acc": 0.9721860209890939,
+      "F1-Score": 0.9874213836477987
+    },
+    "4 Mamba Blocks": {
+      "Accuracy": 0.985,
+      "AUC-ROC": 0.9935523698470403,
+      "Balanced Acc": 0.9814287674051718,
+      "F1-Score": 0.9905561385099685
+    }
+  },
+  "significance_tests": {
+    "mcnemar": {
+      "p_value": 1.0,
+      "chi2": 0.0,
+      "significant": false
+    },
+    "delong": {
+      "p_value": 0.2660465945980346,
+      "z_statistic": -1.1122129654064337,
+      "auc_bidirectional": 0.9877906577954593,
+      "auc_unidirectional": 0.9925063447424378,
+      "significant": false
+    },
+    "paired_bootstrap": {
+      "p_value": 0.1445,
+      "delta_auc": -0.004691430274663742,
+      "delta_ci_95": [
+        -0.014484253084574236,
+        0.0007661057165178367
+      ]
+    }
+  },
+  "segmentation": {
+    "total_images": 600,
+    "avg_follicle_count": 23.285,
+    "avg_infected": 26.205020920502093,
+    "avg_noninfected": 11.844262295081966,
+    "pcos_by_count": 461,
+    "seg_time_s": 9048.7
+  },
+  "follicle_results": [
+    {
+      "image": "Image_661.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8116112947463989,
+      "follicle_count": 38,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 43
+    },
+    {
+      "image": "Image_resize_671  (631).jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.016411682590842247,
+      "follicle_count": 18,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 29
+    },
+    {
+      "image": "image10965.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.81767737865448,
+      "follicle_count": 26,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 32
+    },
+    {
+      "image": "image12845.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7836347818374634,
+      "follicle_count": 17,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 22
+    },
+    {
+      "image": "Image_SetB764.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.014536275528371334,
+      "follicle_count": 18,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 24
+    },
+    {
+      "image": "image12459.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7897862195968628,
+      "follicle_count": 17,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 24
+    },
+    {
+      "image": "Image_Rotate_Rotate_Right_128.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8178035020828247,
+      "follicle_count": 37,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 43
+    },
+    {
+      "image": "image10099.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8125301599502563,
+      "follicle_count": 108,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 126
+    },
+    {
+      "image": "Image_SetB849.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.024899829179048538,
+      "follicle_count": 11,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 20
+    },
+    {
+      "image": "Image_resize_356.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.01240941695868969,
+      "follicle_count": 11,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 16
+    },
+    {
+      "image": "image11595.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7994495034217834,
+      "follicle_count": 44,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 49
+    },
+    {
+      "image": "image11754.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8173832893371582,
+      "follicle_count": 43,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 48
+    },
+    {
+      "image": "Image_650.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.019945163279771805,
+      "follicle_count": 15,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 17
+    },
+    {
+      "image": "Image_resize_306.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.013244315050542355,
+      "follicle_count": 11,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 28
+    },
+    {
+      "image": "Image_417.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.03132810816168785,
+      "follicle_count": 23,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 34
+    },
+    {
+      "image": "Image_SetB460.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.016608593985438347,
+      "follicle_count": 7,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 12
+    },
+    {
+      "image": "Image_Rotate_Rotate_Right_306.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.81644207239151,
+      "follicle_count": 34,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 37
+    },
+    {
+      "image": "Image_039.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8087611794471741,
+      "follicle_count": 42,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 46
+    },
+    {
+      "image": "image12099.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.819547176361084,
+      "follicle_count": 38,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 41
+    },
+    {
+      "image": "image11470.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8258979916572571,
+      "follicle_count": 17,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 25
+    },
+    {
+      "image": "image10249.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8282541036605835,
+      "follicle_count": 19,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 28
+    },
+    {
+      "image": "Image_124.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.811262845993042,
+      "follicle_count": 26,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 31
+    },
+    {
+      "image": "image12290.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8277581930160522,
+      "follicle_count": 28,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 37
+    },
+    {
+      "image": "Image_Rotate_067.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8307984471321106,
+      "follicle_count": 22,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 25
+    },
+    {
+      "image": "Image_793.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8498206734657288,
+      "follicle_count": 41,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 47
+    },
+    {
+      "image": "Image_SETB_415.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8295156359672546,
+      "follicle_count": 47,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 55
+    },
+    {
+      "image": "image10984.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8019039630889893,
+      "follicle_count": 19,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 28
+    },
+    {
+      "image": "image11296.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7937352657318115,
+      "follicle_count": 8,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 15
+    },
+    {
+      "image": "Image_466.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8215756416320801,
+      "follicle_count": 22,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 27
+    },
+    {
+      "image": "Image_resize_671  (617).jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.03143119812011719,
+      "follicle_count": 6,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 13
+    },
+    {
+      "image": "image11646.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8047122955322266,
+      "follicle_count": 9,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 14
+    },
+    {
+      "image": "image13167.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8156300783157349,
+      "follicle_count": 42,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 46
+    },
+    {
+      "image": "image11256.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.812462568283081,
+      "follicle_count": 18,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 25
+    },
+    {
+      "image": "Image_Rotate_Rotate_Right_130.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8095206022262573,
+      "follicle_count": 41,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 47
+    },
+    {
+      "image": "Image_resize_340.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8186988830566406,
+      "follicle_count": 50,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 54
+    },
+    {
+      "image": "image11904.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8113300800323486,
+      "follicle_count": 37,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 43
+    },
+    {
+      "image": "image11435.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7972280979156494,
+      "follicle_count": 15,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 22
+    },
+    {
+      "image": "image10837.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 0,
+      "classification_prob": 0.6781643629074097,
+      "follicle_count": 19,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 21
+    },
+    {
+      "image": "image10280.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8254425525665283,
+      "follicle_count": 8,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 13
+    },
+    {
+      "image": "Image_Rotate_Rotate_Right_229.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8201183080673218,
+      "follicle_count": 38,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 46
+    },
+    {
+      "image": "image13014.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8121510148048401,
+      "follicle_count": 12,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 17
+    },
+    {
+      "image": "image11587.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8089653253555298,
+      "follicle_count": 38,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 42
+    },
+    {
+      "image": "image10679.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7383456230163574,
+      "follicle_count": 16,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 24
+    },
+    {
+      "image": "image10440.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7729592323303223,
+      "follicle_count": 14,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 31
+    },
+    {
+      "image": "image10716.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 0,
+      "classification_prob": 0.07347391545772552,
+      "follicle_count": 13,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 21
+    },
+    {
+      "image": "Image_resize_671  (105).jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.013982171192765236,
+      "follicle_count": 11,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 18
+    },
+    {
+      "image": "image11877.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8078910708427429,
+      "follicle_count": 40,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 42
+    },
+    {
+      "image": "image11827.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.81467205286026,
+      "follicle_count": 41,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 45
+    },
+    {
+      "image": "Image_SETB_442.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7745673656463623,
+      "follicle_count": 17,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 22
+    },
+    {
+      "image": "image10296.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8310792446136475,
+      "follicle_count": 8,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 14
+    },
+    {
+      "image": "image11963.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8260695934295654,
+      "follicle_count": 40,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 43
+    },
+    {
+      "image": "Image_resize_116.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.020556911826133728,
+      "follicle_count": 9,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 15
+    },
+    {
+      "image": "image10374.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8063774704933167,
+      "follicle_count": 5,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 8
+    },
+    {
+      "image": "Image_resize_671  (312).jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.012893961742520332,
+      "follicle_count": 15,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 25
+    },
+    {
+      "image": "image11323.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8036931753158569,
+      "follicle_count": 28,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 33
+    },
+    {
+      "image": "Image_resize_341.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8387094736099243,
+      "follicle_count": 60,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 67
+    },
+    {
+      "image": "image10528.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8306900262832642,
+      "follicle_count": 9,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 13
+    },
+    {
+      "image": "image10525.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 0,
+      "classification_prob": 0.1663244664669037,
+      "follicle_count": 11,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 16
+    },
+    {
+      "image": "image10228.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8224741220474243,
+      "follicle_count": 12,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 19
+    },
+    {
+      "image": "Image_001.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8274293541908264,
+      "follicle_count": 20,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 27
+    },
+    {
+      "image": "image11651.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8234938383102417,
+      "follicle_count": 33,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 38
+    },
+    {
+      "image": "Image_178.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.019278131425380707,
+      "follicle_count": 7,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 15
+    },
+    {
+      "image": "image11162.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8112817406654358,
+      "follicle_count": 18,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 24
+    },
+    {
+      "image": "image10336.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.806921660900116,
+      "follicle_count": 28,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 33
+    },
+    {
+      "image": "Image_SetB631.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.019529640674591064,
+      "follicle_count": 5,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 9
+    },
+    {
+      "image": "image10093.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7503200769424438,
+      "follicle_count": 141,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 172
+    },
+    {
+      "image": "Image_SETB_170.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8046962022781372,
+      "follicle_count": 15,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 21
+    },
+    {
+      "image": "Image_resize_312.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.013461099937558174,
+      "follicle_count": 11,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 26
+    },
+    {
+      "image": "Image_SetA139.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.013211112469434738,
+      "follicle_count": 10,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 14
+    },
+    {
+      "image": "Image_resize_671  (336).jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.013849074020981789,
+      "follicle_count": 14,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 18
+    },
+    {
+      "image": "image11986.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.818930983543396,
+      "follicle_count": 45,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 49
+    },
+    {
+      "image": "image13135.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8026144504547119,
+      "follicle_count": 15,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 36
+    },
+    {
+      "image": "Image_032.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.778383731842041,
+      "follicle_count": 33,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 39
+    },
+    {
+      "image": "image12617.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.811420202255249,
+      "follicle_count": 19,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 24
+    },
+    {
+      "image": "image12955.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8005553483963013,
+      "follicle_count": 22,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 30
+    },
+    {
+      "image": "image12298.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8148971796035767,
+      "follicle_count": 21,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 30
+    },
+    {
+      "image": "Image_SetB752.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 1,
+      "classification_prob": 0.8123000860214233,
+      "follicle_count": 10,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 13
+    },
+    {
+      "image": "image11626.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8076416850090027,
+      "follicle_count": 40,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 42
+    },
+    {
+      "image": "image11964.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8030971884727478,
+      "follicle_count": 12,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 14
+    },
+    {
+      "image": "image11987.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8089643716812134,
+      "follicle_count": 42,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 54
+    },
+    {
+      "image": "Image_421.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.015887737274169922,
+      "follicle_count": 16,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 22
+    },
+    {
+      "image": "image10121.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8077974915504456,
+      "follicle_count": 117,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 138
+    },
+    {
+      "image": "Image_SETB_827.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8138588666915894,
+      "follicle_count": 35,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 42
+    },
+    {
+      "image": "image11898.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8106065988540649,
+      "follicle_count": 40,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 48
+    },
+    {
+      "image": "image11168.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.805770754814148,
+      "follicle_count": 22,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 31
+    },
+    {
+      "image": "image11525.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.832298755645752,
+      "follicle_count": 18,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 29
+    },
+    {
+      "image": "image11144.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8219897747039795,
+      "follicle_count": 16,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 22
+    },
+    {
+      "image": "image11255.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8284437656402588,
+      "follicle_count": 16,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 30
+    },
+    {
+      "image": "image11933.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8187696933746338,
+      "follicle_count": 18,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 20
+    },
+    {
+      "image": "image10030.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8075684905052185,
+      "follicle_count": 43,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 57
+    },
+    {
+      "image": "image12549.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8316817283630371,
+      "follicle_count": 8,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 11
+    },
+    {
+      "image": "Image_Rotate_Rotate_Right_058.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.821390688419342,
+      "follicle_count": 12,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 15
+    },
+    {
+      "image": "image10354.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8039763569831848,
+      "follicle_count": 19,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 24
+    },
+    {
+      "image": "image10370.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7938230633735657,
+      "follicle_count": 15,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 17
+    },
+    {
+      "image": "Image_Rotate_271.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.826892614364624,
+      "follicle_count": 35,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 38
+    },
+    {
+      "image": "image12957.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.805622935295105,
+      "follicle_count": 29,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 40
+    },
+    {
+      "image": "image10803.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.800263524055481,
+      "follicle_count": 16,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 22
+    },
+    {
+      "image": "Image_725.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.08531440794467926,
+      "follicle_count": 20,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 27
+    },
+    {
+      "image": "image11340.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8111032247543335,
+      "follicle_count": 12,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 18
+    },
+    {
+      "image": "Image_921.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8077539205551147,
+      "follicle_count": 48,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 54
+    },
+    {
+      "image": "Image_resize_671  (156).jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.01866486296057701,
+      "follicle_count": 4,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 9
+    },
+    {
+      "image": "Image_SetB836.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.016610294580459595,
+      "follicle_count": 14,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 23
+    },
+    {
+      "image": "Image_resize_082.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8228530883789062,
+      "follicle_count": 36,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 41
+    },
+    {
+      "image": "image10809.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8237944841384888,
+      "follicle_count": 23,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 40
+    },
+    {
+      "image": "image12120.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.815269947052002,
+      "follicle_count": 45,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 50
+    },
+    {
+      "image": "image12737.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8053381443023682,
+      "follicle_count": 17,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 25
+    },
+    {
+      "image": "Image_467.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8121993541717529,
+      "follicle_count": 44,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 47
+    },
+    {
+      "image": "image10115.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8319213390350342,
+      "follicle_count": 10,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 15
+    },
+    {
+      "image": "image10073.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8138787746429443,
+      "follicle_count": 78,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 102
+    },
+    {
+      "image": "Image_338.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8243818283081055,
+      "follicle_count": 47,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 54
+    },
+    {
+      "image": "Image_SetA070.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.02856152318418026,
+      "follicle_count": 9,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 15
+    },
+    {
+      "image": "image11061.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8233699798583984,
+      "follicle_count": 7,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 14
+    },
+    {
+      "image": "image11326.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8055871725082397,
+      "follicle_count": 20,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 27
+    },
+    {
+      "image": "Image_SETB_770.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8146538734436035,
+      "follicle_count": 42,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 50
+    },
+    {
+      "image": "image11901.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8179078102111816,
+      "follicle_count": 8,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 13
+    },
+    {
+      "image": "Image_125.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.01760157011449337,
+      "follicle_count": 11,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 30
+    },
+    {
+      "image": "image12575.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8153334259986877,
+      "follicle_count": 29,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 30
+    },
+    {
+      "image": "Image_559.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8241954445838928,
+      "follicle_count": 34,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 37
+    },
+    {
+      "image": "Image_resize_671  (361).jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.01259167492389679,
+      "follicle_count": 12,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 22
+    },
+    {
+      "image": "image10193.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7904313206672668,
+      "follicle_count": 36,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 45
+    },
+    {
+      "image": "image11440.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8284602165222168,
+      "follicle_count": 6,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 11
+    },
+    {
+      "image": "image11619.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8197590708732605,
+      "follicle_count": 38,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 41
+    },
+    {
+      "image": "image13094.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8033068180084229,
+      "follicle_count": 23,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 33
+    },
+    {
+      "image": "image13106.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8064172267913818,
+      "follicle_count": 19,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 23
+    },
+    {
+      "image": "image10076.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8182312250137329,
+      "follicle_count": 84,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 118
+    },
+    {
+      "image": "Image_resize_341.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.017833277583122253,
+      "follicle_count": 11,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 21
+    },
+    {
+      "image": "image10667.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7947250008583069,
+      "follicle_count": 20,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 26
+    },
+    {
+      "image": "image10754.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.791216254234314,
+      "follicle_count": 18,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 32
+    },
+    {
+      "image": "image11097.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8251121044158936,
+      "follicle_count": 10,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 16
+    },
+    {
+      "image": "Image_SetA373.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.010323598049581051,
+      "follicle_count": 9,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 15
+    },
+    {
+      "image": "image12004.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8143035769462585,
+      "follicle_count": 39,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 42
+    },
+    {
+      "image": "image11223.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7231670618057251,
+      "follicle_count": 7,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 13
+    },
+    {
+      "image": "image11169.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7992721796035767,
+      "follicle_count": 15,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 23
+    },
+    {
+      "image": "image11539.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8047444224357605,
+      "follicle_count": 7,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 13
+    },
+    {
+      "image": "image12602.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8246584534645081,
+      "follicle_count": 19,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 30
+    },
+    {
+      "image": "image11354.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7850632667541504,
+      "follicle_count": 15,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 25
+    },
+    {
+      "image": "Image_007.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.027170157060027122,
+      "follicle_count": 14,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 20
+    },
+    {
+      "image": "image10673.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7921764850616455,
+      "follicle_count": 23,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 25
+    },
+    {
+      "image": "image11911.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.807680070400238,
+      "follicle_count": 44,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 48
+    },
+    {
+      "image": "Image_SetB016.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.01533592864871025,
+      "follicle_count": 8,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 14
+    },
+    {
+      "image": "Image_929.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.01874387077987194,
+      "follicle_count": 15,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 31
+    },
+    {
+      "image": "Image_resize_671  (906).jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.01523725688457489,
+      "follicle_count": 18,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 23
+    },
+    {
+      "image": "image10601.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7923096418380737,
+      "follicle_count": 27,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 30
+    },
+    {
+      "image": "image11552.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8105898499488831,
+      "follicle_count": 42,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 52
+    },
+    {
+      "image": "image11625.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8108644485473633,
+      "follicle_count": 46,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 49
+    },
+    {
+      "image": "image11330.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8014176487922668,
+      "follicle_count": 20,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 25
+    },
+    {
+      "image": "Image_Rotate_015.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8314142227172852,
+      "follicle_count": 31,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 36
+    },
+    {
+      "image": "Image_SETB_247.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.806777834892273,
+      "follicle_count": 20,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 25
+    },
+    {
+      "image": "Image_266.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.021257195621728897,
+      "follicle_count": 12,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 15
+    },
+    {
+      "image": "Image_SETA_874.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8001573085784912,
+      "follicle_count": 30,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 37
+    },
+    {
+      "image": "image10615.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7293829917907715,
+      "follicle_count": 17,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 26
+    },
+    {
+      "image": "image11320.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7755616903305054,
+      "follicle_count": 21,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 26
+    },
+    {
+      "image": "Image_resize_103.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8194966316223145,
+      "follicle_count": 37,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 42
+    },
+    {
+      "image": "image11459.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.821465253829956,
+      "follicle_count": 18,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 32
+    },
+    {
+      "image": "image10550.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7573645710945129,
+      "follicle_count": 27,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 36
+    },
+    {
+      "image": "Image_resize_671  (423).jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.013454867526888847,
+      "follicle_count": 10,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 12
+    },
+    {
+      "image": "image11847.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.800358235836029,
+      "follicle_count": 52,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 58
+    },
+    {
+      "image": "image10510.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7742021083831787,
+      "follicle_count": 23,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 26
+    },
+    {
+      "image": "image11699.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8135225772857666,
+      "follicle_count": 48,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 54
+    },
+    {
+      "image": "image10927.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8321157693862915,
+      "follicle_count": 24,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 46
+    },
+    {
+      "image": "image10031.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8243448734283447,
+      "follicle_count": 22,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 25
+    },
+    {
+      "image": "image10347.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8207257390022278,
+      "follicle_count": 38,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 47
+    },
+    {
+      "image": "Image_resize_671  (552).jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.06333737075328827,
+      "follicle_count": 15,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 19
+    },
+    {
+      "image": "image10362.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8257497549057007,
+      "follicle_count": 11,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 17
+    },
+    {
+      "image": "image12134.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8164997100830078,
+      "follicle_count": 31,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 34
+    },
+    {
+      "image": "Image_Rotate_Rotate_Right_302.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8338578939437866,
+      "follicle_count": 31,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 38
+    },
+    {
+      "image": "image13112.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8229056596755981,
+      "follicle_count": 23,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 33
+    },
+    {
+      "image": "image12311.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.817411482334137,
+      "follicle_count": 12,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 15
+    },
+    {
+      "image": "image10685.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7701071500778198,
+      "follicle_count": 20,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 26
+    },
+    {
+      "image": "image10110.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7864902019500732,
+      "follicle_count": 123,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 149
+    },
+    {
+      "image": "Image_SetA325.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.03158864006400108,
+      "follicle_count": 16,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 22
+    },
+    {
+      "image": "Image_Rotate_331.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8124606013298035,
+      "follicle_count": 13,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 19
+    },
+    {
+      "image": "Image_153.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.825186014175415,
+      "follicle_count": 25,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 31
+    },
+    {
+      "image": "Image_SetA530.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.026194190606474876,
+      "follicle_count": 12,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 18
+    },
+    {
+      "image": "image11577.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8076649904251099,
+      "follicle_count": 49,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 56
+    },
+    {
+      "image": "Image_resize_047.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.021094731986522675,
+      "follicle_count": 13,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 19
+    },
+    {
+      "image": "image11805.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8059239387512207,
+      "follicle_count": 51,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 54
+    },
+    {
+      "image": "Image_SetB450.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.02364758588373661,
+      "follicle_count": 8,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 12
+    },
+    {
+      "image": "image10290.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.812809407711029,
+      "follicle_count": 15,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 24
+    },
+    {
+      "image": "image10623.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.820980429649353,
+      "follicle_count": 22,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 41
+    },
+    {
+      "image": "image10097.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.830010175704956,
+      "follicle_count": 20,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 24
+    },
+    {
+      "image": "Image_SETB_565.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8252445459365845,
+      "follicle_count": 46,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 52
+    },
+    {
+      "image": "image11568.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8135904669761658,
+      "follicle_count": 47,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 51
+    },
+    {
+      "image": "Image_Rotate_Rotate_Right_344.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.83945232629776,
+      "follicle_count": 26,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 33
+    },
+    {
+      "image": "image11146.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8207199573516846,
+      "follicle_count": 27,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 34
+    },
+    {
+      "image": "Image_resize_671  (1093).jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.01707373559474945,
+      "follicle_count": 6,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 11
+    },
+    {
+      "image": "image12639.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8087420463562012,
+      "follicle_count": 17,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 29
+    },
+    {
+      "image": "image11640.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.804297149181366,
+      "follicle_count": 46,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 49
+    },
+    {
+      "image": "image12062.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8075662851333618,
+      "follicle_count": 40,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 46
+    },
+    {
+      "image": "image11966.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8099602460861206,
+      "follicle_count": 59,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 65
+    },
+    {
+      "image": "Image_SETA_489.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8064374923706055,
+      "follicle_count": 17,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 23
+    },
+    {
+      "image": "image11507.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7518229484558105,
+      "follicle_count": 20,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 28
+    },
+    {
+      "image": "Image_SETB_500.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8433775901794434,
+      "follicle_count": 38,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 44
+    },
+    {
+      "image": "Image_SetA932.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.014826640486717224,
+      "follicle_count": 9,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 17
+    },
+    {
+      "image": "Image_resize_387.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.012626400217413902,
+      "follicle_count": 10,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 19
+    },
+    {
+      "image": "Image_SetA107.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.021304363384842873,
+      "follicle_count": 18,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 27
+    },
+    {
+      "image": "image10448.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 0,
+      "classification_prob": 0.5989813804626465,
+      "follicle_count": 19,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 26
+    },
+    {
+      "image": "image11585.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8049678802490234,
+      "follicle_count": 44,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 49
+    },
+    {
+      "image": "Image_SETB_814.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8168338537216187,
+      "follicle_count": 32,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 41
+    },
+    {
+      "image": "image10004.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8184847831726074,
+      "follicle_count": 14,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 23
+    },
+    {
+      "image": "Image_SETA_294.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8236353993415833,
+      "follicle_count": 37,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 42
+    },
+    {
+      "image": "image13074.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8086105585098267,
+      "follicle_count": 13,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 19
+    },
+    {
+      "image": "image11719.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8139399886131287,
+      "follicle_count": 32,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 35
+    },
+    {
+      "image": "image11580.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8167010545730591,
+      "follicle_count": 39,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 40
+    },
+    {
+      "image": "image10684.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 0,
+      "classification_prob": 0.08081649243831635,
+      "follicle_count": 12,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 16
+    },
+    {
+      "image": "Image_SETA_947.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8363028764724731,
+      "follicle_count": 40,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 44
+    },
+    {
+      "image": "image11180.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8302816152572632,
+      "follicle_count": 8,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 15
+    },
+    {
+      "image": "image11187.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8033122420310974,
+      "follicle_count": 17,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 26
+    },
+    {
+      "image": "image12162.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8147832155227661,
+      "follicle_count": 33,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 37
+    },
+    {
+      "image": "Image_SetB161.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.028856461867690086,
+      "follicle_count": 10,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 15
+    },
+    {
+      "image": "Image_Rotate_Rotate_Right_273.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7706460952758789,
+      "follicle_count": 23,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 29
+    },
+    {
+      "image": "image10801.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8253287076950073,
+      "follicle_count": 8,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 12
+    },
+    {
+      "image": "image12502.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.81730055809021,
+      "follicle_count": 21,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 25
+    },
+    {
+      "image": "image10053.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8066610097885132,
+      "follicle_count": 94,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 117
+    },
+    {
+      "image": "Image_956.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8101944923400879,
+      "follicle_count": 41,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 46
+    },
+    {
+      "image": "image12051.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8072866201400757,
+      "follicle_count": 39,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 49
+    },
+    {
+      "image": "image13134.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8126616477966309,
+      "follicle_count": 21,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 30
+    },
+    {
+      "image": "image10983.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8211572170257568,
+      "follicle_count": 10,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 13
+    },
+    {
+      "image": "image11237.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8352702260017395,
+      "follicle_count": 8,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 13
+    },
+    {
+      "image": "image12066.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.818009614944458,
+      "follicle_count": 39,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 42
+    },
+    {
+      "image": "image11189.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8283025026321411,
+      "follicle_count": 15,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 21
+    },
+    {
+      "image": "image11402.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7997201085090637,
+      "follicle_count": 15,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 25
+    },
+    {
+      "image": "Image_resize_711.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.01244586706161499,
+      "follicle_count": 4,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 9
+    },
+    {
+      "image": "image12571.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7915246486663818,
+      "follicle_count": 18,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 25
+    },
+    {
+      "image": "image10663.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7940129041671753,
+      "follicle_count": 17,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 35
+    },
+    {
+      "image": "image12809.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8193631172180176,
+      "follicle_count": 21,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 25
+    },
+    {
+      "image": "Image_resize_671  (621).jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.02003413438796997,
+      "follicle_count": 10,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 13
+    },
+    {
+      "image": "Image_399.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.016345512121915817,
+      "follicle_count": 5,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 7
+    },
+    {
+      "image": "image10379.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8251734972000122,
+      "follicle_count": 12,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 17
+    },
+    {
+      "image": "image12678.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8175419569015503,
+      "follicle_count": 11,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 18
+    },
+    {
+      "image": "image10163.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8224959969520569,
+      "follicle_count": 6,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 10
+    },
+    {
+      "image": "Image_resize_671  (1042).jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.017256448045372963,
+      "follicle_count": 6,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 11
+    },
+    {
+      "image": "image12173.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.824381411075592,
+      "follicle_count": 37,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 41
+    },
+    {
+      "image": "image11406.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8285098075866699,
+      "follicle_count": 20,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 33
+    },
+    {
+      "image": "image12278.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7960774302482605,
+      "follicle_count": 18,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 25
+    },
+    {
+      "image": "image10086.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8075200915336609,
+      "follicle_count": 11,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 18
+    },
+    {
+      "image": "image11679.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8090381622314453,
+      "follicle_count": 40,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 45
+    },
+    {
+      "image": "image13130.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8132809400558472,
+      "follicle_count": 14,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 19
+    },
+    {
+      "image": "Image_347.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8210314512252808,
+      "follicle_count": 34,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 40
+    },
+    {
+      "image": "image12547.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8084794878959656,
+      "follicle_count": 18,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 24
+    },
+    {
+      "image": "image10335.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8242776393890381,
+      "follicle_count": 10,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 16
+    },
+    {
+      "image": "image10991.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8148800134658813,
+      "follicle_count": 22,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 41
+    },
+    {
+      "image": "image10298.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8141977787017822,
+      "follicle_count": 15,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 26
+    },
+    {
+      "image": "image10447.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7872050404548645,
+      "follicle_count": 28,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 34
+    },
+    {
+      "image": "image10050.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7846310138702393,
+      "follicle_count": 36,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 41
+    },
+    {
+      "image": "Image_Rotate_129.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8118118643760681,
+      "follicle_count": 41,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 47
+    },
+    {
+      "image": "Image_resize_689.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.013549325987696648,
+      "follicle_count": 5,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 16
+    },
+    {
+      "image": "image10576.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7913120985031128,
+      "follicle_count": 14,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 19
+    },
+    {
+      "image": "image10802.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7958561778068542,
+      "follicle_count": 26,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 33
+    },
+    {
+      "image": "Image_resize_671  (862).jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.0373164638876915,
+      "follicle_count": 13,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 20
+    },
+    {
+      "image": "image12593.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.793588399887085,
+      "follicle_count": 22,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 25
+    },
+    {
+      "image": "image10272.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8086650371551514,
+      "follicle_count": 32,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 38
+    },
+    {
+      "image": "Image_703.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.826930820941925,
+      "follicle_count": 40,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 45
+    },
+    {
+      "image": "Image_SETB_008.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8081362247467041,
+      "follicle_count": 41,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 50
+    },
+    {
+      "image": "Image_432.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.796359658241272,
+      "follicle_count": 6,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 14
+    },
+    {
+      "image": "image12516.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8083503246307373,
+      "follicle_count": 17,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 24
+    },
+    {
+      "image": "image12441.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7857440114021301,
+      "follicle_count": 21,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 27
+    },
+    {
+      "image": "image10270.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8393384218215942,
+      "follicle_count": 11,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 15
+    },
+    {
+      "image": "Image_622.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.027810953557491302,
+      "follicle_count": 12,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 21
+    },
+    {
+      "image": "image10240.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8226851224899292,
+      "follicle_count": 18,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 22
+    },
+    {
+      "image": "Image_resize_764.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.01221349835395813,
+      "follicle_count": 13,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 21
+    },
+    {
+      "image": "image11399.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8114852905273438,
+      "follicle_count": 8,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 13
+    },
+    {
+      "image": "Image_resize_714.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.017802106216549873,
+      "follicle_count": 11,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 18
+    },
+    {
+      "image": "image10468.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7740712761878967,
+      "follicle_count": 19,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 26
+    },
+    {
+      "image": "Image_Rotate_Rotate_Right_083.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7742177248001099,
+      "follicle_count": 31,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 37
+    },
+    {
+      "image": "image11974.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8011585474014282,
+      "follicle_count": 40,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 44
+    },
+    {
+      "image": "Image_resize_671  (791).jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.026202306151390076,
+      "follicle_count": 15,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 24
+    },
+    {
+      "image": "image11902.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8118120431900024,
+      "follicle_count": 49,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 53
+    },
+    {
+      "image": "image13137.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7037543058395386,
+      "follicle_count": 22,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 29
+    },
+    {
+      "image": "image11490.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7990971803665161,
+      "follicle_count": 16,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 26
+    },
+    {
+      "image": "Image_Rotate_Rotate_Right_365.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8373363018035889,
+      "follicle_count": 28,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 33
+    },
+    {
+      "image": "image10438.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7773362398147583,
+      "follicle_count": 19,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 27
+    },
+    {
+      "image": "image11574.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8202303647994995,
+      "follicle_count": 39,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 41
+    },
+    {
+      "image": "image11194.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8224892020225525,
+      "follicle_count": 20,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 31
+    },
+    {
+      "image": "image11675.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8227071762084961,
+      "follicle_count": 14,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 17
+    },
+    {
+      "image": "Image_resize_225.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8241499662399292,
+      "follicle_count": 37,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 41
+    },
+    {
+      "image": "image11506.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8327857255935669,
+      "follicle_count": 14,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 35
+    },
+    {
+      "image": "image10912.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.820805013179779,
+      "follicle_count": 16,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 25
+    },
+    {
+      "image": "Image_resize_463.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.013214774429798126,
+      "follicle_count": 8,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 23
+    },
+    {
+      "image": "image10463.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7920411825180054,
+      "follicle_count": 7,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 12
+    },
+    {
+      "image": "image12786.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8162304162979126,
+      "follicle_count": 17,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 24
+    },
+    {
+      "image": "image12056.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8169436454772949,
+      "follicle_count": 52,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 55
+    },
+    {
+      "image": "image13111.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8176987171173096,
+      "follicle_count": 16,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 22
+    },
+    {
+      "image": "image10426.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.823560893535614,
+      "follicle_count": 6,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 14
+    },
+    {
+      "image": "Image_Rotate_341.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8121418952941895,
+      "follicle_count": 7,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 15
+    },
+    {
+      "image": "Image_Rotate_Rotate_Right_400.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7933765649795532,
+      "follicle_count": 9,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 16
+    },
+    {
+      "image": "Image_SETB_301.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8103206157684326,
+      "follicle_count": 20,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 25
+    },
+    {
+      "image": "image11496.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7765085697174072,
+      "follicle_count": 22,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 26
+    },
+    {
+      "image": "image10405.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8067649602890015,
+      "follicle_count": 12,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 18
+    },
+    {
+      "image": "Image_SETB_099.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8289036750793457,
+      "follicle_count": 28,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 33
+    },
+    {
+      "image": "image10041.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8172467350959778,
+      "follicle_count": 28,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 43
+    },
+    {
+      "image": "Image_655.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8107025623321533,
+      "follicle_count": 46,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 50
+    },
+    {
+      "image": "Image_resize_018.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8168336153030396,
+      "follicle_count": 41,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 47
+    },
+    {
+      "image": "image11349.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8007230162620544,
+      "follicle_count": 7,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 17
+    },
+    {
+      "image": "image11545.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8129494786262512,
+      "follicle_count": 15,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 19
+    },
+    {
+      "image": "Image_SetA035.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.025417987257242203,
+      "follicle_count": 33,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 38
+    },
+    {
+      "image": "Image_SETB_907.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8086157441139221,
+      "follicle_count": 40,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 47
+    },
+    {
+      "image": "image12754.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8387987613677979,
+      "follicle_count": 11,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 15
+    },
+    {
+      "image": "image11139.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8184276819229126,
+      "follicle_count": 10,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 15
+    },
+    {
+      "image": "image11199.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8304448127746582,
+      "follicle_count": 17,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 25
+    },
+    {
+      "image": "image12971.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8185257911682129,
+      "follicle_count": 16,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 26
+    },
+    {
+      "image": "image10112.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8222408294677734,
+      "follicle_count": 8,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 14
+    },
+    {
+      "image": "image11007.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7801352739334106,
+      "follicle_count": 17,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 24
+    },
+    {
+      "image": "Image_356.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.023940136656165123,
+      "follicle_count": 20,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 27
+    },
+    {
+      "image": "image10573.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.808384358882904,
+      "follicle_count": 20,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 37
+    },
+    {
+      "image": "Image_resize_694.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.011192983016371727,
+      "follicle_count": 5,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 13
+    },
+    {
+      "image": "image10346.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.769291341304779,
+      "follicle_count": 42,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 51
+    },
+    {
+      "image": "Image_SetB156.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.028037190437316895,
+      "follicle_count": 10,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 17
+    },
+    {
+      "image": "image12665.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7965613007545471,
+      "follicle_count": 20,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 25
+    },
+    {
+      "image": "image11138.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8225232362747192,
+      "follicle_count": 21,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 25
+    },
+    {
+      "image": "image12608.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8180220723152161,
+      "follicle_count": 20,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 25
+    },
+    {
+      "image": "image12844.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 0,
+      "classification_prob": 0.022678405046463013,
+      "follicle_count": 8,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 17
+    },
+    {
+      "image": "image12074.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8103334307670593,
+      "follicle_count": 37,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 41
+    },
+    {
+      "image": "image11954.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8109804391860962,
+      "follicle_count": 38,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 45
+    },
+    {
+      "image": "image10288.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8298834562301636,
+      "follicle_count": 17,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 25
+    },
+    {
+      "image": "image12604.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8355420827865601,
+      "follicle_count": 14,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 32
+    },
+    {
+      "image": "Image_resize_034.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.017586147412657738,
+      "follicle_count": 14,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 23
+    },
+    {
+      "image": "image12084.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8025299906730652,
+      "follicle_count": 10,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 15
+    },
+    {
+      "image": "Image_resize_373.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8541184663772583,
+      "follicle_count": 58,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 65
+    },
+    {
+      "image": "Image_SetA004.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.015320216305553913,
+      "follicle_count": 10,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 14
+    },
+    {
+      "image": "image10281.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8085806369781494,
+      "follicle_count": 11,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 17
+    },
+    {
+      "image": "image10722.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7901183366775513,
+      "follicle_count": 14,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 23
+    },
+    {
+      "image": "Image_Rotate_Rotate_Right_373.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7945502996444702,
+      "follicle_count": 32,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 38
+    },
+    {
+      "image": "image10464.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.686689555644989,
+      "follicle_count": 17,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 23
+    },
+    {
+      "image": "Image_508.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.01520222146064043,
+      "follicle_count": 12,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 18
+    },
+    {
+      "image": "Image_Rotate_Rotate_Right_102.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8506110906600952,
+      "follicle_count": 30,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 36
+    },
+    {
+      "image": "Image_Rotate_Rotate_Right_238.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8014087677001953,
+      "follicle_count": 45,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 48
+    },
+    {
+      "image": "Image_resize_671  (706).jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.025626853108406067,
+      "follicle_count": 9,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 27
+    },
+    {
+      "image": "image11931.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8077062368392944,
+      "follicle_count": 8,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 14
+    },
+    {
+      "image": "Image_SETA_896.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7931358814239502,
+      "follicle_count": 14,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 22
+    },
+    {
+      "image": "image11216.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8005784749984741,
+      "follicle_count": 21,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 26
+    },
+    {
+      "image": "Image_SetA905.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.02595287561416626,
+      "follicle_count": 12,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 19
+    },
+    {
+      "image": "Image_263.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.014568403363227844,
+      "follicle_count": 14,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 20
+    },
+    {
+      "image": "image12059.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8152864575386047,
+      "follicle_count": 36,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 39
+    },
+    {
+      "image": "image10421.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8130660057067871,
+      "follicle_count": 25,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 30
+    },
+    {
+      "image": "Image_resize_520.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.021775338798761368,
+      "follicle_count": 10,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 14
+    },
+    {
+      "image": "image13109.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7924928665161133,
+      "follicle_count": 20,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 31
+    },
+    {
+      "image": "Image_363.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.024326391518115997,
+      "follicle_count": 20,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 23
+    },
+    {
+      "image": "image10293.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8229044675827026,
+      "follicle_count": 21,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 30
+    },
+    {
+      "image": "Image_576.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.017581909894943237,
+      "follicle_count": 8,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 18
+    },
+    {
+      "image": "image10712.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8023829460144043,
+      "follicle_count": 25,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 30
+    },
+    {
+      "image": "Image_resize_671  (86).jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.012629196047782898,
+      "follicle_count": 5,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 13
+    },
+    {
+      "image": "image12990.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8042365312576294,
+      "follicle_count": 29,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 32
+    },
+    {
+      "image": "image11868.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8114652037620544,
+      "follicle_count": 41,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 48
+    },
+    {
+      "image": "image11824.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8206403255462646,
+      "follicle_count": 34,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 37
+    },
+    {
+      "image": "image12097.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8163009881973267,
+      "follicle_count": 38,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 40
+    },
+    {
+      "image": "image10130.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7413109540939331,
+      "follicle_count": 87,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 99
+    },
+    {
+      "image": "Image_SetA759.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.013638576492667198,
+      "follicle_count": 5,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 24
+    },
+    {
+      "image": "image10070.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8184313774108887,
+      "follicle_count": 10,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 13
+    },
+    {
+      "image": "Image_599.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.4749651551246643,
+      "follicle_count": 24,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 27
+    },
+    {
+      "image": "Image_Rotate_311.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8218967914581299,
+      "follicle_count": 12,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 16
+    },
+    {
+      "image": "image10087.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8183101415634155,
+      "follicle_count": 46,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 63
+    },
+    {
+      "image": "image11253.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8241207003593445,
+      "follicle_count": 21,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 37
+    },
+    {
+      "image": "Image_resize_185.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8206897974014282,
+      "follicle_count": 39,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 42
+    },
+    {
+      "image": "image11158.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8114112615585327,
+      "follicle_count": 21,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 29
+    },
+    {
+      "image": "image11227.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7444756031036377,
+      "follicle_count": 11,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 18
+    },
+    {
+      "image": "Image_resize_532.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.012516632676124573,
+      "follicle_count": 8,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 16
+    },
+    {
+      "image": "Image_resize_673.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.01255932729691267,
+      "follicle_count": 17,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 36
+    },
+    {
+      "image": "Image_595.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.020524678751826286,
+      "follicle_count": 9,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 14
+    },
+    {
+      "image": "Image_Rotate_Rotate_Right_246.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8101819157600403,
+      "follicle_count": 24,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 28
+    },
+    {
+      "image": "Image_Rotate_Rotate_Right_335.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7878338098526001,
+      "follicle_count": 8,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 15
+    },
+    {
+      "image": "image10538.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 0,
+      "classification_prob": 0.04718188941478729,
+      "follicle_count": 14,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 21
+    },
+    {
+      "image": "image10250.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8165156841278076,
+      "follicle_count": 19,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 29
+    },
+    {
+      "image": "image12960.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8072591423988342,
+      "follicle_count": 22,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 26
+    },
+    {
+      "image": "image10425.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8172633051872253,
+      "follicle_count": 11,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 15
+    },
+    {
+      "image": "image12553.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8091381788253784,
+      "follicle_count": 20,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 27
+    },
+    {
+      "image": "image11710.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8167446255683899,
+      "follicle_count": 49,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 52
+    },
+    {
+      "image": "Image_Rotate_Rotate_Right_114.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8316458463668823,
+      "follicle_count": 17,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 22
+    },
+    {
+      "image": "image10811.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7886373400688171,
+      "follicle_count": 7,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 10
+    },
+    {
+      "image": "Image_844.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.022729026153683662,
+      "follicle_count": 11,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 19
+    },
+    {
+      "image": "image11690.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8159898519515991,
+      "follicle_count": 35,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 40
+    },
+    {
+      "image": "image10104.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8228182792663574,
+      "follicle_count": 11,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 17
+    },
+    {
+      "image": "image13063.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7770324945449829,
+      "follicle_count": 20,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 26
+    },
+    {
+      "image": "image10911.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8141689300537109,
+      "follicle_count": 24,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 29
+    },
+    {
+      "image": "Image_SetB919.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.02912904880940914,
+      "follicle_count": 8,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 12
+    },
+    {
+      "image": "image10357.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8275777697563171,
+      "follicle_count": 14,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 19
+    },
+    {
+      "image": "Image_SetA412.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.02732114866375923,
+      "follicle_count": 18,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 23
+    },
+    {
+      "image": "image13117.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7643296718597412,
+      "follicle_count": 20,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 25
+    },
+    {
+      "image": "image12464.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.839126467704773,
+      "follicle_count": 19,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 28
+    },
+    {
+      "image": "Image_Rotate_Rotate_Right_179.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8233835101127625,
+      "follicle_count": 33,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 38
+    },
+    {
+      "image": "Image_972.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.023324619978666306,
+      "follicle_count": 12,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 15
+    },
+    {
+      "image": "Image_912.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8048334121704102,
+      "follicle_count": 15,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 18
+    },
+    {
+      "image": "Image_SetB315.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.013051221147179604,
+      "follicle_count": 16,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 22
+    },
+    {
+      "image": "image10327.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7798923254013062,
+      "follicle_count": 27,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 31
+    },
+    {
+      "image": "Image_819.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.801017165184021,
+      "follicle_count": 36,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 46
+    },
+    {
+      "image": "image11274.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7708399295806885,
+      "follicle_count": 14,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 22
+    },
+    {
+      "image": "image12626.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8127670288085938,
+      "follicle_count": 27,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 33
+    },
+    {
+      "image": "Image_063.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8377412557601929,
+      "follicle_count": 47,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 56
+    },
+    {
+      "image": "Image_SetA1021.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.025282427668571472,
+      "follicle_count": 9,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 13
+    },
+    {
+      "image": "image12081.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8183338046073914,
+      "follicle_count": 32,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 36
+    },
+    {
+      "image": "image11347.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.800493597984314,
+      "follicle_count": 13,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 29
+    },
+    {
+      "image": "image10300.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8263993263244629,
+      "follicle_count": 18,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 23
+    },
+    {
+      "image": "image12017.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.818548321723938,
+      "follicle_count": 38,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 42
+    },
+    {
+      "image": "image10963.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7940008044242859,
+      "follicle_count": 17,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 23
+    },
+    {
+      "image": "image11297.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8269936442375183,
+      "follicle_count": 2,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 4
+    },
+    {
+      "image": "Image_Rotate_Rotate_Right_174.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8207235336303711,
+      "follicle_count": 27,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 34
+    },
+    {
+      "image": "image12725.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7690260410308838,
+      "follicle_count": 17,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 23
+    },
+    {
+      "image": "image12579.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.817686915397644,
+      "follicle_count": 26,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 32
+    },
+    {
+      "image": "Image_SETA_724.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7976791858673096,
+      "follicle_count": 11,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 17
+    },
+    {
+      "image": "Image_resize_214.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.028225764632225037,
+      "follicle_count": 29,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 33
+    },
+    {
+      "image": "image11958.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8170683979988098,
+      "follicle_count": 32,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 37
+    },
+    {
+      "image": "Image_SETA_875.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7939980030059814,
+      "follicle_count": 24,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 32
+    },
+    {
+      "image": "image13042.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8204892873764038,
+      "follicle_count": 20,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 26
+    },
+    {
+      "image": "Image_SetB010.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.01736433245241642,
+      "follicle_count": 12,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 18
+    },
+    {
+      "image": "image11289.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8237259387969971,
+      "follicle_count": 15,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 26
+    },
+    {
+      "image": "Image_resize_373.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.015453143045306206,
+      "follicle_count": 10,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 18
+    },
+    {
+      "image": "Image_Rotate_Rotate_Right_060.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8207584023475647,
+      "follicle_count": 37,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 43
+    },
+    {
+      "image": "image10514.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 0,
+      "classification_prob": 0.040468115359544754,
+      "follicle_count": 11,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 16
+    },
+    {
+      "image": "image12938.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7702772617340088,
+      "follicle_count": 31,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 37
+    },
+    {
+      "image": "image11959.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8217816352844238,
+      "follicle_count": 32,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 35
+    },
+    {
+      "image": "Image_SetB086.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.015934903174638748,
+      "follicle_count": 12,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 18
+    },
+    {
+      "image": "image11833.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8053838014602661,
+      "follicle_count": 40,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 43
+    },
+    {
+      "image": "image10992.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7461453080177307,
+      "follicle_count": 20,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 27
+    },
+    {
+      "image": "Image_SETA_672.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8166988492012024,
+      "follicle_count": 13,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 18
+    },
+    {
+      "image": "image11095.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8142512440681458,
+      "follicle_count": 22,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 27
+    },
+    {
+      "image": "image12783.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8309739232063293,
+      "follicle_count": 9,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 15
+    },
+    {
+      "image": "image11647.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8118195533752441,
+      "follicle_count": 66,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 68
+    },
+    {
+      "image": "Image_SetA124.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 1,
+      "classification_prob": 0.8258854150772095,
+      "follicle_count": 8,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 11
+    },
+    {
+      "image": "image12436.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8319330811500549,
+      "follicle_count": 13,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 18
+    },
+    {
+      "image": "Image_Rotate_Rotate_Right_232.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7797345519065857,
+      "follicle_count": 37,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 43
+    },
+    {
+      "image": "image11523.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7895641326904297,
+      "follicle_count": 25,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 33
+    },
+    {
+      "image": "Image_SETB_359.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7766923904418945,
+      "follicle_count": 16,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 21
+    },
+    {
+      "image": "image10167.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8282368183135986,
+      "follicle_count": 6,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 12
+    },
+    {
+      "image": "Image_011.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8185789585113525,
+      "follicle_count": 21,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 24
+    },
+    {
+      "image": "Image_Rotate_Rotate_Right_187.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8337122797966003,
+      "follicle_count": 40,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 47
+    },
+    {
+      "image": "Image_Rotate_Rotate_Right_361.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8133352994918823,
+      "follicle_count": 17,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 21
+    },
+    {
+      "image": "image11522.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8023939728736877,
+      "follicle_count": 30,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 32
+    },
+    {
+      "image": "image11054.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8166472911834717,
+      "follicle_count": 17,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 25
+    },
+    {
+      "image": "Image_Rotate_Rotate_Right_003.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8299918174743652,
+      "follicle_count": 52,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 57
+    },
+    {
+      "image": "Image_resize_671  (261).jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.01383259892463684,
+      "follicle_count": 12,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 23
+    },
+    {
+      "image": "image11748.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8057593107223511,
+      "follicle_count": 52,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 57
+    },
+    {
+      "image": "image10473.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8204965591430664,
+      "follicle_count": 7,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 11
+    },
+    {
+      "image": "Image_033.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.02702302671968937,
+      "follicle_count": 14,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 27
+    },
+    {
+      "image": "Image_Rotate_125.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8388946056365967,
+      "follicle_count": 37,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 45
+    },
+    {
+      "image": "image11727.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8037171363830566,
+      "follicle_count": 51,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 61
+    },
+    {
+      "image": "image10907.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7675063014030457,
+      "follicle_count": 17,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 22
+    },
+    {
+      "image": "Image_SetB432.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.02009376883506775,
+      "follicle_count": 9,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 22
+    },
+    {
+      "image": "Image_574.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.02568099834024906,
+      "follicle_count": 20,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 25
+    },
+    {
+      "image": "image11456.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8140848875045776,
+      "follicle_count": 8,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 14
+    },
+    {
+      "image": "Image_SetB927.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.09435306489467621,
+      "follicle_count": 11,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 12
+    },
+    {
+      "image": "image11284.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8095051646232605,
+      "follicle_count": 12,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 19
+    },
+    {
+      "image": "Image_resize_123.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.015025746077299118,
+      "follicle_count": 5,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 11
+    },
+    {
+      "image": "Image_Rotate_Rotate_Right_349.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7357867956161499,
+      "follicle_count": 41,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 45
+    },
+    {
+      "image": "image10484.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8145500421524048,
+      "follicle_count": 15,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 20
+    },
+    {
+      "image": "image10373.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.838386595249176,
+      "follicle_count": 39,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 41
+    },
+    {
+      "image": "Image_289.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.025497471913695335,
+      "follicle_count": 17,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 22
+    },
+    {
+      "image": "Image_resize_275.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.812587320804596,
+      "follicle_count": 32,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 40
+    },
+    {
+      "image": "image11017.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8074751496315002,
+      "follicle_count": 20,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 25
+    },
+    {
+      "image": "Image_SetA287.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.014343219809234142,
+      "follicle_count": 15,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 26
+    },
+    {
+      "image": "image12394.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.792972207069397,
+      "follicle_count": 18,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 26
+    },
+    {
+      "image": "Image_968.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.06227773427963257,
+      "follicle_count": 14,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 21
+    },
+    {
+      "image": "Image_SETB_307.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8035156726837158,
+      "follicle_count": 42,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 49
+    },
+    {
+      "image": "image12147.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8228256702423096,
+      "follicle_count": 20,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 23
+    },
+    {
+      "image": "Image_resize_192.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.010713443160057068,
+      "follicle_count": 14,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 20
+    },
+    {
+      "image": "Image_1011.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7760622501373291,
+      "follicle_count": 27,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 31
+    },
+    {
+      "image": "image11644.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8151081800460815,
+      "follicle_count": 27,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 30
+    },
+    {
+      "image": "image11912.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.808495283126831,
+      "follicle_count": 37,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 39
+    },
+    {
+      "image": "Image_SETA_044.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8032166957855225,
+      "follicle_count": 31,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 37
+    },
+    {
+      "image": "Image_resize_717.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.2906908392906189,
+      "follicle_count": 15,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 21
+    },
+    {
+      "image": "Image_SetA064.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.02616167441010475,
+      "follicle_count": 23,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 28
+    },
+    {
+      "image": "Image_Rotate_286.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7859399318695068,
+      "follicle_count": 10,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 15
+    },
+    {
+      "image": "image10640.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7795943021774292,
+      "follicle_count": 21,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 32
+    },
+    {
+      "image": "Image_resize_671  (168).jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.009805391542613506,
+      "follicle_count": 13,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 26
+    },
+    {
+      "image": "Image_resize_072.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.816340446472168,
+      "follicle_count": 78,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 81
+    },
+    {
+      "image": "Image_Rotate_Rotate_Right_007.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8400901556015015,
+      "follicle_count": 37,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 45
+    },
+    {
+      "image": "image11021.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7933299541473389,
+      "follicle_count": 10,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 16
+    },
+    {
+      "image": "image11613.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8166521787643433,
+      "follicle_count": 29,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 34
+    },
+    {
+      "image": "image11894.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7975768446922302,
+      "follicle_count": 43,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 51
+    },
+    {
+      "image": "Image_resize_005.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.017970070242881775,
+      "follicle_count": 8,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 21
+    },
+    {
+      "image": "Image_resize_446.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.015964040532708168,
+      "follicle_count": 8,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 15
+    },
+    {
+      "image": "Image_SetB952.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.013304159045219421,
+      "follicle_count": 25,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 28
+    },
+    {
+      "image": "Image_resize_699.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.012103341519832611,
+      "follicle_count": 5,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 13
+    },
+    {
+      "image": "Image_resize_668.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.014211637899279594,
+      "follicle_count": 5,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 15
+    },
+    {
+      "image": "image11038.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8068264126777649,
+      "follicle_count": 24,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 32
+    },
+    {
+      "image": "image12154.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8125109672546387,
+      "follicle_count": 38,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 43
+    },
+    {
+      "image": "image10322.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8227298855781555,
+      "follicle_count": 29,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 33
+    },
+    {
+      "image": "image11813.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8097872138023376,
+      "follicle_count": 39,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 43
+    },
+    {
+      "image": "Image_SETA_444.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8102631568908691,
+      "follicle_count": 37,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 42
+    },
+    {
+      "image": "image12865.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8246066570281982,
+      "follicle_count": 5,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 10
+    },
+    {
+      "image": "Image_Rotate_176.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8287116289138794,
+      "follicle_count": 29,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 35
+    },
+    {
+      "image": "Image_SetA505.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.019298553466796875,
+      "follicle_count": 11,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 16
+    },
+    {
+      "image": "image10224.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.824993908405304,
+      "follicle_count": 15,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 19
+    },
+    {
+      "image": "Image_SetB868.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.018759772181510925,
+      "follicle_count": 15,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 24
+    },
+    {
+      "image": "image11784.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7977735996246338,
+      "follicle_count": 50,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 56
+    },
+    {
+      "image": "Image_SETA_833.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8111351728439331,
+      "follicle_count": 20,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 26
+    },
+    {
+      "image": "image11361.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8085466027259827,
+      "follicle_count": 17,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 28
+    },
+    {
+      "image": "image12197.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7820379734039307,
+      "follicle_count": 33,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 38
+    },
+    {
+      "image": "Image_SetB143.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.015239086002111435,
+      "follicle_count": 7,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 15
+    },
+    {
+      "image": "Image_Rotate_Rotate_Right_250.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8269598484039307,
+      "follicle_count": 19,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 25
+    },
+    {
+      "image": "Image_SetB522.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.03951115906238556,
+      "follicle_count": 15,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 29
+    },
+    {
+      "image": "image13017.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7863434553146362,
+      "follicle_count": 17,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 25
+    },
+    {
+      "image": "Image_resize_035.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8083678483963013,
+      "follicle_count": 8,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 15
+    },
+    {
+      "image": "image10431.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8221676349639893,
+      "follicle_count": 19,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 26
+    },
+    {
+      "image": "Image_SETA_524.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8183836936950684,
+      "follicle_count": 18,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 25
+    },
+    {
+      "image": "Image_SETA_633.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7719663381576538,
+      "follicle_count": 45,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 49
+    },
+    {
+      "image": "Image_SETA_144.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8355562686920166,
+      "follicle_count": 36,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 41
+    },
+    {
+      "image": "image11572.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8170857429504395,
+      "follicle_count": 37,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 40
+    },
+    {
+      "image": "image11921.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8208447694778442,
+      "follicle_count": 23,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 26
+    },
+    {
+      "image": "Image_105.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8132383823394775,
+      "follicle_count": 47,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 50
+    },
+    {
+      "image": "image10313.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7967915534973145,
+      "follicle_count": 14,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 21
+    },
+    {
+      "image": "image12389.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8248304128646851,
+      "follicle_count": 10,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 15
+    },
+    {
+      "image": "image10203.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7944944500923157,
+      "follicle_count": 20,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 30
+    },
+    {
+      "image": "image11616.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8071156740188599,
+      "follicle_count": 36,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 41
+    },
+    {
+      "image": "image10600.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7870324850082397,
+      "follicle_count": 14,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 22
+    },
+    {
+      "image": "image11765.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8207782506942749,
+      "follicle_count": 37,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 39
+    },
+    {
+      "image": "Image_Rotate_Rotate_Right_379.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.779234766960144,
+      "follicle_count": 33,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 35
+    },
+    {
+      "image": "image11121.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7625486850738525,
+      "follicle_count": 15,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 20
+    },
+    {
+      "image": "image10516.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.6978992223739624,
+      "follicle_count": 10,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 19
+    },
+    {
+      "image": "image10404.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8240323066711426,
+      "follicle_count": 8,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 14
+    },
+    {
+      "image": "Image_resize_671  (461).jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.01200526487082243,
+      "follicle_count": 7,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 14
+    },
+    {
+      "image": "image10633.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7974357604980469,
+      "follicle_count": 5,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 15
+    },
+    {
+      "image": "Image_SETB_809.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8047292232513428,
+      "follicle_count": 37,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 45
+    },
+    {
+      "image": "image11429.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7446873188018799,
+      "follicle_count": 7,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 16
+    },
+    {
+      "image": "Image_SETB_362.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7776616811752319,
+      "follicle_count": 11,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 18
+    },
+    {
+      "image": "Image_Rotate_Rotate_Right_257.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8102531433105469,
+      "follicle_count": 34,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 40
+    },
+    {
+      "image": "image10520.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8022959232330322,
+      "follicle_count": 9,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 14
+    },
+    {
+      "image": "image12886.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8287203907966614,
+      "follicle_count": 15,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 23
+    },
+    {
+      "image": "image11283.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8084412813186646,
+      "follicle_count": 34,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 40
+    },
+    {
+      "image": "image13041.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8249400854110718,
+      "follicle_count": 16,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 29
+    },
+    {
+      "image": "image12077.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8192857503890991,
+      "follicle_count": 8,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 15
+    },
+    {
+      "image": "image10660.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8052780628204346,
+      "follicle_count": 20,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 28
+    },
+    {
+      "image": "Image_SETA_716.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.803223729133606,
+      "follicle_count": 39,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 47
+    },
+    {
+      "image": "Image_resize_485.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.017525669187307358,
+      "follicle_count": 22,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 28
+    },
+    {
+      "image": "image10067.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8491371870040894,
+      "follicle_count": 25,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 30
+    },
+    {
+      "image": "Image_458.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8419523239135742,
+      "follicle_count": 38,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 45
+    },
+    {
+      "image": "image12944.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8205247521400452,
+      "follicle_count": 24,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 29
+    },
+    {
+      "image": "image10174.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8029866218566895,
+      "follicle_count": 5,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 10
+    },
+    {
+      "image": "Image_resize_085.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8165038824081421,
+      "follicle_count": 43,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 47
+    },
+    {
+      "image": "Image_SETB_433.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7849931716918945,
+      "follicle_count": 35,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 38
+    },
+    {
+      "image": "Image_SetB354.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.019080262631177902,
+      "follicle_count": 5,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 18
+    },
+    {
+      "image": "image11059.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7863613367080688,
+      "follicle_count": 19,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 28
+    },
+    {
+      "image": "image12936.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8168112635612488,
+      "follicle_count": 19,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 26
+    },
+    {
+      "image": "Image_SetA113.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.01279526948928833,
+      "follicle_count": 14,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 27
+    },
+    {
+      "image": "Image_Rotate_Rotate_Right_087.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8160132169723511,
+      "follicle_count": 28,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 37
+    },
+    {
+      "image": "image12136.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.819218099117279,
+      "follicle_count": 37,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 42
+    },
+    {
+      "image": "image11241.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7848761081695557,
+      "follicle_count": 27,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 31
+    },
+    {
+      "image": "image11913.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7970073819160461,
+      "follicle_count": 13,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 17
+    },
+    {
+      "image": "Image_resize_380.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.817213773727417,
+      "follicle_count": 36,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 41
+    },
+    {
+      "image": "Image_resize_482.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.01377371046692133,
+      "follicle_count": 10,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 14
+    },
+    {
+      "image": "image12292.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7762139439582825,
+      "follicle_count": 21,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 27
+    },
+    {
+      "image": "image10062.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8024342060089111,
+      "follicle_count": 14,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 20
+    },
+    {
+      "image": "image10713.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8124221563339233,
+      "follicle_count": 6,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 8
+    },
+    {
+      "image": "Image_SetB959.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.0175828468054533,
+      "follicle_count": 5,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 13
+    },
+    {
+      "image": "image10235.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7835642099380493,
+      "follicle_count": 48,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 63
+    },
+    {
+      "image": "image10139.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8287621140480042,
+      "follicle_count": 8,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 12
+    },
+    {
+      "image": "Image_resize_671  (275).jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.011437954381108284,
+      "follicle_count": 10,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 24
+    },
+    {
+      "image": "image10164.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8218090534210205,
+      "follicle_count": 11,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 18
+    },
+    {
+      "image": "image12180.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8188687562942505,
+      "follicle_count": 16,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 23
+    },
+    {
+      "image": "Image_860.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8396522402763367,
+      "follicle_count": 37,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 45
+    },
+    {
+      "image": "Image_resize_352.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8302614688873291,
+      "follicle_count": 67,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 70
+    },
+    {
+      "image": "image10303.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8283969163894653,
+      "follicle_count": 22,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 29
+    },
+    {
+      "image": "Image_Rotate_003.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8321065902709961,
+      "follicle_count": 55,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 62
+    },
+    {
+      "image": "Image_resize_671  (372).jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.022146843373775482,
+      "follicle_count": 4,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 9
+    },
+    {
+      "image": "Image_resize_454.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.009994564577937126,
+      "follicle_count": 16,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 27
+    },
+    {
+      "image": "Image_resize_055.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.015720125287771225,
+      "follicle_count": 4,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 10
+    },
+    {
+      "image": "Image_Rotate_390.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8202014565467834,
+      "follicle_count": 17,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 24
+    },
+    {
+      "image": "image10553.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.777819037437439,
+      "follicle_count": 16,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 26
+    },
+    {
+      "image": "Image_699.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.836546003818512,
+      "follicle_count": 45,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 49
+    },
+    {
+      "image": "image13143.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.821840763092041,
+      "follicle_count": 18,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 27
+    },
+    {
+      "image": "image10356.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8356256484985352,
+      "follicle_count": 19,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 24
+    },
+    {
+      "image": "Image_Rotate_Rotate_Right_279.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8204535245895386,
+      "follicle_count": 25,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 35
+    },
+    {
+      "image": "image13153.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8027877807617188,
+      "follicle_count": 8,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 12
+    },
+    {
+      "image": "image11633.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8070645928382874,
+      "follicle_count": 46,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 49
+    },
+    {
+      "image": "Image_SETA_942.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.763120174407959,
+      "follicle_count": 10,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 18
+    },
+    {
+      "image": "Image_SetB992.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.30688780546188354,
+      "follicle_count": 11,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 18
+    },
+    {
+      "image": "image10518.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8176814317703247,
+      "follicle_count": 10,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 14
+    },
+    {
+      "image": "Image_resize_671  (528).jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.01718318834900856,
+      "follicle_count": 7,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 13
+    },
+    {
+      "image": "image10337.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8263115882873535,
+      "follicle_count": 17,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 25
+    },
+    {
+      "image": "Image_resize_233.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.01132350042462349,
+      "follicle_count": 7,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 12
+    },
+    {
+      "image": "image11962.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.822686493396759,
+      "follicle_count": 35,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 38
+    },
+    {
+      "image": "image11430.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7800880074501038,
+      "follicle_count": 23,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 29
+    },
+    {
+      "image": "image10515.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.800757646560669,
+      "follicle_count": 18,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 24
+    },
+    {
+      "image": "image13083.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8061720132827759,
+      "follicle_count": 13,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 21
+    },
+    {
+      "image": "Image_SETA_695.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8088314533233643,
+      "follicle_count": 16,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 22
+    },
+    {
+      "image": "Image_Rotate_Rotate_Right_212.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7936823964118958,
+      "follicle_count": 8,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 14
+    },
+    {
+      "image": "Image_resize_306.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8267511129379272,
+      "follicle_count": 33,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 39
+    },
+    {
+      "image": "Image_SETB_893.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7945745587348938,
+      "follicle_count": 17,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 22
+    },
+    {
+      "image": "Image_resize_394.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8209710121154785,
+      "follicle_count": 62,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 66
+    },
+    {
+      "image": "image10627.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7434293031692505,
+      "follicle_count": 19,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 29
+    },
+    {
+      "image": "Image_SETA_803.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8109805583953857,
+      "follicle_count": 17,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 21
+    },
+    {
+      "image": "image11152.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7942758798599243,
+      "follicle_count": 24,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 32
+    },
+    {
+      "image": "Image_SetB571.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.029991120100021362,
+      "follicle_count": 18,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 25
+    },
+    {
+      "image": "Image_SETB_036.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8283782005310059,
+      "follicle_count": 38,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 44
+    },
+    {
+      "image": "image11352.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7697110176086426,
+      "follicle_count": 31,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 38
+    },
+    {
+      "image": "image11738.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8039565086364746,
+      "follicle_count": 14,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 19
+    },
+    {
+      "image": "Image_resize_284.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.804713249206543,
+      "follicle_count": 42,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 44
+    },
+    {
+      "image": "image10198.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8318251967430115,
+      "follicle_count": 13,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 17
+    },
+    {
+      "image": "image13126.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7585972547531128,
+      "follicle_count": 24,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 31
+    },
+    {
+      "image": "image11485.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8239250779151917,
+      "follicle_count": 28,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 36
+    },
+    {
+      "image": "image12569.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8352699875831604,
+      "follicle_count": 16,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 31
+    },
+    {
+      "image": "image10566.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.6998552083969116,
+      "follicle_count": 19,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 30
+    },
+    {
+      "image": "image13161.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8284392356872559,
+      "follicle_count": 41,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 42
+    },
+    {
+      "image": "Image_resize_671  (285).jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.01669144630432129,
+      "follicle_count": 7,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 13
+    },
+    {
+      "image": "Image_resize_250.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8243967294692993,
+      "follicle_count": 41,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 46
+    },
+    {
+      "image": "Image_SETA_939.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7860006093978882,
+      "follicle_count": 17,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 29
+    },
+    {
+      "image": "Image_SETB_189.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8098169565200806,
+      "follicle_count": 20,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 27
+    },
+    {
+      "image": "image13124.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8170291781425476,
+      "follicle_count": 5,
+      "pcos_by_follicle_count": false,
+      "total_sam_masks": 10
+    },
+    {
+      "image": "Image_Rotate_Rotate_Right_227.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.7808340787887573,
+      "follicle_count": 22,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 29
+    },
+    {
+      "image": "image10872.jpg",
+      "true_label": 1,
+      "true_label_name": "infected",
+      "classification_pred": 1,
+      "classification_prob": 0.8130022287368774,
+      "follicle_count": 27,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 33
+    },
+    {
+      "image": "Image_SetA271.jpg",
+      "true_label": 0,
+      "true_label_name": "noninfected",
+      "classification_pred": 0,
+      "classification_prob": 0.012530053965747356,
+      "follicle_count": 13,
+      "pcos_by_follicle_count": true,
+      "total_sam_masks": 29
+    }
+  ]
+}
